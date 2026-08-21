@@ -1,0 +1,698 @@
+* {
+    box-sizing: border-box;
+}
+
+
+body {
+    margin: 0;
+    min-height: 100vh;
+
+    font-family: "Zen Maru Gothic", "Noto Sans TC", sans-serif;
+
+    color: white;
+
+    background-image: url("donut\ island.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    overflow: hidden;
+}
+
+
+/* ====================
+   海洋
+==================== */
+
+.ocean {
+    position: relative;
+
+    width: 100vw;
+    height: 100vh;
+
+    overflow: hidden;
+}
+
+
+/* ====================
+   中央內容
+==================== */
+
+.container {
+    position: relative;
+
+    z-index: 2;
+
+    width: 100%;
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    justify-content: flex-start;
+
+    padding-top: 300px;
+
+    text-align: center;
+
+    pointer-events: none;
+}
+
+.container > * {
+    pointer-events: auto;
+}
+
+
+/* ====================
+   標題
+==================== */
+
+h1 {
+    font-family: "Zen Maru Gothic", "Noto Sans TC", sans-serif;
+
+    font-size: 48px;
+    font-weight: 400;
+    letter-spacing: 8px;
+
+    margin: 0 0 40px;
+
+    text-shadow:
+        0 2px 8px rgba(70, 80, 70, 0.35);
+}
+
+
+p {
+    font-family: "Zen Maru Gothic", "Noto Sans TC", sans-serif;
+
+    font-size: 18px;
+    font-weight: 400;
+    letter-spacing: 3px;
+
+    opacity: 0.85;
+
+    margin: 0 0 15px;
+}
+
+
+/* ====================
+   按鈕
+==================== */
+
+button {
+    margin-top: 20px;
+
+    padding: 14px 32px;
+
+    border: 1px solid rgba(255,255,255,0.4);
+
+    border-radius: 40px;
+
+    background: rgba(255,255,255,0.08);
+
+    color: white;
+
+    font-size: 16px;
+
+    letter-spacing: 2px;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+
+button:hover {
+    background: rgba(255,255,255,0.18);
+
+    transform: translateY(-3px);
+}
+
+
+/* ====================
+   島嶼
+==================== */
+
+.island {
+    position: absolute;
+
+    width: 400px;
+    height: 400px;
+
+    border-radius: 50%;
+
+    left: 50%;
+    top: 48%;
+
+    transform: translate(-50%, -50%);
+
+    background: rgba(170, 198, 195, 0.72);
+
+    box-shadow:
+        0 0 30px rgba(255, 245, 220, 0.25),
+        0 10px 40px rgba(80, 100, 90, 0.12);
+
+    opacity: 1;
+
+    animation: islandBreath 6s ease-in-out infinite;
+}
+
+
+/* 島嶼外圍的光 */
+
+.island::before {
+    content: "";
+
+    position: absolute;
+
+    inset: -25px;
+
+    border-radius: 50%;
+
+    border: 1px solid rgba(180, 230, 220, 0.08);
+
+    box-shadow:
+        0 0 40px rgba(160, 220, 210, 0.08);
+
+    animation: islandGlow 6s ease-in-out infinite;
+}
+
+.island::after {
+    content: "";
+
+    position: absolute;
+
+    width: 5px;
+    height: 5px;
+
+    border-radius: 50%;
+
+    background: rgba(255, 248, 220, 0.75);
+
+    top: 62%;
+    left: 28%;
+
+    box-shadow:
+        0 0 10px rgba(255, 248, 220, 0.7),
+        0 0 25px rgba(255, 240, 200, 0.35);
+
+    animation: littleGlow 5s ease-in-out infinite;
+}
+
+
+/* 島上的微光 */
+
+.light {
+    position: absolute;
+
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+
+    background: rgba(255, 248, 220, 0.95);
+
+    top: 35%;
+    left: 58%;
+
+    box-shadow:
+        0 0 8px rgba(255, 248, 220, 0.8),
+        0 0 20px rgba(255, 240, 200, 0.45),
+        0 0 35px rgba(255, 240, 200, 0.2);
+
+    animation: lightPulse 4s ease-in-out infinite;
+}
+
+
+/* ====================
+   島嶼動畫
+==================== */
+
+@keyframes islandGlow {
+
+    0%, 100% {
+        opacity: 0.4;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 0.8;
+        transform: scale(1.02);
+    }
+
+}
+
+
+@keyframes lightPulse {
+
+    0%, 100% {
+        opacity: 0.4;
+        transform: scale(0.8);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.2);
+    }
+
+}
+
+
+/* ====================
+   海洋水波
+==================== */
+
+.ocean::before,
+.ocean::after {
+    content: "";
+
+    position: absolute;
+
+    width: 140vw;
+
+    height: 140vw;
+
+    border-radius: 45%;
+
+    border: 1px solid rgba(150, 210, 220, 0.05);
+
+    left: 50%;
+
+    top: 50%;
+
+    transform: translate(-50%, -50%);
+
+    animation: oceanWave 18s linear infinite;
+}
+
+
+.ocean::after {
+    width: 110vw;
+
+    height: 110vw;
+
+    border-color: rgba(180, 220, 220, 0.04);
+
+    animation-duration: 25s;
+
+    animation-direction: reverse;
+}
+
+
+@keyframes oceanWave {
+
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+
+}
+
+@keyframes littleGlow {
+
+    0%, 100% {
+        opacity: 0.2;
+        transform: translateY(4px) scale(0.8);
+    }
+
+    50% {
+        opacity: 0.8;
+        transform: translateY(-6px) scale(1.1);
+    }
+
+}
+
+
+/* ====================
+   告別表單
+==================== */
+
+.memo-form {
+    display: none;
+
+    width: 320px;
+
+    margin-top: 25px;
+
+    position: relative;
+    z-index: 10;
+
+    animation: fadeIn 0.8s ease;
+}
+
+.memo-form button {
+    margin-top: -10px;
+}
+
+
+.memo-form textarea {
+    width: 320px;
+
+    height: 140px;
+
+    padding: 18px;
+
+    position: relative;
+    top: -20px;
+
+    resize: none;
+
+    border-radius: 15px;
+
+    border: 1px solid rgba(255,255,255,0.2);
+
+    background: rgba(255,255,255,0.08);
+
+    color: white;
+
+    font-size: 16px;
+
+    line-height: 1.7;
+
+    outline: none;
+
+    backdrop-filter: blur(10px);
+}
+
+
+.memo-form textarea::placeholder {
+    color: rgba(255,255,255,0.45);
+}
+
+
+@keyframes fadeIn {
+
+    from {
+        opacity: 0;
+
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform: translateY(0);
+    }
+
+}
+
+
+/* ====================
+   Memo 張貼牆
+==================== */
+
+#memoWall {
+
+    position: absolute;
+
+    left: 0;
+
+    top: 0;
+
+    width: 100%;
+
+    height: 100%;
+
+    pointer-events: none;
+
+    z-index: 3;
+}
+
+
+/* ====================
+   Memo 紙
+==================== */
+
+.memo {
+
+    position: absolute;
+
+    width: 180px;
+
+    min-height: 120px;
+
+    padding: 22px;
+
+    background: rgba(255, 252, 238, 0.92);
+
+    border-radius: 4px;
+
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.12);
+
+    color: #4b4b4b;
+
+    font-size: 15px;
+
+    line-height: 1.7;
+
+    cursor: pointer;
+
+    pointer-events: auto;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+
+    animation: memoFloat 5s ease-in-out infinite;
+}
+
+
+.memo:hover {
+
+    transform:
+        translateY(-8px)
+        scale(1.03)
+        rotate(0deg);
+
+    box-shadow:
+        0 15px 30px rgba(0, 0, 0, 0.18);
+}
+
+
+/* ====================
+   Memo 漂浮
+==================== */
+
+@keyframes memoFloat {
+
+    0%, 100% {
+        margin-top: 0;
+    }
+
+    50% {
+        margin-top: -8px;
+    }
+
+}
+
+
+/* ====================
+   不同 Memo 的角度
+==================== */
+
+.memo:nth-child(2) {
+    transform: rotate(4deg);
+
+    animation-delay: -1s;
+}
+
+
+.memo:nth-child(3) {
+    transform: rotate(-6deg);
+
+    animation-delay: -2s;
+}
+
+
+.memo:nth-child(4) {
+    transform: rotate(2deg);
+
+    animation-delay: -3s;
+}
+
+
+/* ====================
+   手機版
+==================== */
+
+@media (max-width: 600px) {
+
+    h1 {
+        font-size: 36px;
+
+        letter-spacing: 5px;
+    }
+
+
+    p {
+        font-size: 15px;
+    }
+
+
+    .island {
+        width: 300px;
+
+        height: 300px;
+    }
+
+
+    .memo {
+        width: 140px;
+
+        min-height: 100px;
+
+        padding: 16px;
+
+        font-size: 13px;
+    }
+
+}/* ====================
+   Memo 紙選擇
+==================== */
+
+.paper-selection {
+    margin-bottom: 25px;
+
+    position: relative;
+    top: -25px;
+}
+
+.paper-selection p {
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+.paper-options {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 14px;
+}
+
+
+.paper-option {
+    width: 60px;
+
+    height: 60px;
+
+    margin-top: 0;
+
+    padding: 0;
+
+    border-radius: 4px;
+
+    border: 2px solid transparent;
+
+    color: rgba(50, 50, 50, 0.5);
+
+    font-size: 13px;
+
+    letter-spacing: 1px;
+
+    box-shadow:
+        0 4px 12px rgba(0, 0, 0, 0.12);
+
+    transition:
+        transform 0.2s ease,
+        border 0.2s ease;
+}
+
+
+.paper-option:hover {
+    transform: translateY(-4px);
+}
+
+
+/* 四種紙 */
+
+.paper-cream {
+    background: #d6d6fc;
+}
+
+
+.paper-blue {
+    background: #bfeaf5;
+}
+
+
+.paper-yellow {
+    background: #FFCCCC;
+}
+
+
+.paper-green {
+    background: #d9e6d5;
+}
+
+
+/* 被選中的紙 */
+
+.paper-option.selected {
+    border: 2px solid rgba(255,255,255,0.9);
+
+    transform: translateY(-5px) scale(1.05);
+
+    box-shadow:
+        0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.memo {
+    touch-action: none;
+    user-select: none;
+    cursor: grab;
+}
+
+.memo:active {
+    cursor: grabbing;
+}
+
+#musicButton {
+    position: fixed;
+
+    right: 30px;
+    top: 30px;
+
+    width: 48px;
+    height: 48px;
+
+    margin: 0;
+
+    border-radius: 50%;
+
+    border: 1px solid rgba(173, 218, 248, 0.3);
+
+    background: rgba(173, 218, 248, 0.3);
+
+    color: rgb(134, 161, 248);
+
+    font-size: 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+
+    z-index: 9999;
+}
+
+@keyframes islandBreath {
+
+    0%, 100% {
+        box-shadow:
+            0 0 25px rgba(255, 245, 220, 0.15),
+            0 10px 40px rgba(80, 100, 90, 0.10);
+    }
+
+    50% {
+        box-shadow:
+            0 0 45px rgba(255, 245, 220, 0.28),
+            0 10px 50px rgba(80, 100, 90, 0.16);
+    }
+
+}

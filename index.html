@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="style.css">
+
+    <title>告別創傷島</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500&display=swap" rel="stylesheet">
+    
+</head>
+
+<body>
+
+    <div class="ocean">
+
+        <div class="island">
+            <div class="light"></div>
+        </div>
+
+        <div class="container">
+
+            <h1>告別創傷島</h1>
+
+            <p>有些話，不一定要說給誰聽。</p>
+
+            <button id="writeButton">
+                寫下你想要告別的人事物
+            </button>
+
+
+            <!-- 寫下告別的表單 -->
+            <div id="memoForm" class="memo-form">
+
+<div class="paper-selection">
+
+    <p>選一張想留下的紙</p>
+
+    <div class="paper-options">
+
+        <button class="paper-option paper-cream" data-paper="cream">
+            01
+        </button>
+
+        <button class="paper-option paper-blue" data-paper="blue">
+            02
+        </button>
+
+        <button class="paper-option paper-yellow" data-paper="yellow">
+            03
+        </button>
+
+        <button class="paper-option paper-green" data-paper="green">
+            04
+        </button>
+
+    </div>
+
+</div>
+
+                    <textarea
+                    id="memoInput"
+                    placeholder="把想說的話留在這裡"
+                    maxlength="200"
+                ></textarea>
+
+                <br>
+
+                <button id="releaseButton">
+                    我想放下
+                </button>
+
+            </div>
+
+        </div>
+
+        
+            <!-- Memo 張貼牆 -->
+            <div id="memoWall"></div>
+
+    </div>
+
+    <audio id="bgm" src="bgm.wav" loop></audio>
+
+<button id="musicButton">
+    ♫
+</button>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+    <script src="script.js"></script>
+
+</body>
+</html>
