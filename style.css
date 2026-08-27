@@ -146,11 +146,11 @@ button:hover {
 
     transform: translate(-50%, -50%);
 
-    background: rgba(170, 198, 195, 0.72);
+    background: rgba(28, 63, 61, 0.76);
 
     box-shadow:
-        0 0 30px rgba(255, 245, 220, 0.25),
-        0 10px 40px rgba(80, 100, 90, 0.12);
+         inset 0 0 45px rgba(0, 0, 0, 0.38),
+    0 0 30px rgba(20, 45, 50, 0.20);
 
     opacity: 1;
 
