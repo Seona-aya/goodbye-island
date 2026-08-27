@@ -560,16 +560,13 @@ button:hover {
         white-space: nowrap;
     }
 
-
-   @media (max-width: 600px) {
-
     /* ====================
        手機版圓圈
     ==================== */
 
     .island {
-        width: min(78vw, 320px);
-        height: min(78vw, 320px);
+        width: min(68vw, 280px);
+        height: min(68vw, 280px);
 
         top: 48%;
     }
@@ -603,7 +600,7 @@ button:hover {
     ==================== */
 
     h1 {
-        margin-top: 175px;
+        margin-top: 220px;
 
         margin-bottom: 22px;
 
@@ -730,7 +727,6 @@ button:hover {
         height: 44px;
     }
 
-}
 }/* ====================
    Memo 紙選擇
 ==================== */
